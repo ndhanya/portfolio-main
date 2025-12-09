@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/portfolio-main/static/css/main.1a583e7c.css",
+    "main.js": "/portfolio-main/static/js/main.18380045.js",
+    "static/media/audio.mp3": "/portfolio-main/static/media/audio.becd66496be9c81ddf9d.mp3",
+    "static/media/Dhanya.jpeg": "/portfolio-main/static/media/Dhanya.c5ea5be168483fe2ba85.jpeg",
+    "index.html": "/portfolio-main/index.html",
+    "main.1a583e7c.css.map": "/portfolio-main/static/css/main.1a583e7c.css.map",
+    "main.18380045.js.map": "/portfolio-main/static/js/main.18380045.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a583e7c.css",
+    "static/js/main.18380045.js"
+  ]
+}
