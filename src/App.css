@@ -1,0 +1,604 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  /* overflow: hidden */
+}
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  background-color: #fff2ee;
+}
+.pointer {
+  cursor: pointer;
+}
+.header {
+  height: 100px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  position: fixed;
+  z-index: 999;
+}
+.header > .logo {
+  font-size: 2em;
+  padding: none;
+  display: block;
+  font-weight: bold;
+  font-family: "Pacifico", cursive;
+}
+.header > .playPause {
+  margin-left: 20px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header > .playPause > span {
+  font-size: 40px;
+}
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #fff2ee;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.main > .backgroundScreen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main > .backgroundScreen > .left {
+  width: 50%;
+}
+.main > .backgroundScreen > .right {
+  position: absolute;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: #000;
+  animation: fillAnimation 1s ease forwards;
+}
+@keyframes fillAnimation {
+  100% {
+    width: 50%;
+  }
+}
+.main > .content {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main > .content > .box {
+  width: 850px;
+  height: 300px;
+  display: flex;
+  animation: expandAnimation 1.5s ease forwards;
+}
+@keyframes expandAnimation {
+  0% {
+    transform: scaleY(0);
+  }
+  50% {
+    transform: scaleY(1.05);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+.main > .content > .box > .leftBox {
+  width: 50%;
+  height: 100%;
+  border: 3px solid #000;
+  border-right: 0;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+.main > .content > .box > .rightBox {
+  width: 50%;
+  height: 100%;
+  border: 3px solid #fff2ee;
+  border-left: 0;
+  padding: 40px;
+  font-family: "Rubik", sans-serif;
+}
+.main > .content > .box > .rightBox > div {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.fade-in-element {
+  opacity: 0; /* Start with opacity 0 */
+  position: absolute;
+  bottom: 0;
+  width: 350px;
+  animation: fadeInAnimation 1s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  to {
+    opacity: 1; /* Fade in to full opacity */
+  }
+}
+.links {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+.links > .bottomLinks {
+  position: absolute;
+  bottom: 0;
+  height: 80px;
+  width: 100vw;
+  /* background-color: red; */
+  padding: 25px;
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+  font-family: "Rubik", sans-serif;
+}
+.links > .bottomLinks > span > a:hover {
+  transform: scale(1.2);
+}
+.bl {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideInFromBottom 0.7s ease forwards;
+}
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px); /* Bounce up a bit */
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(5px); /* Bounce down a bit */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.links > .leftLinks {
+  position: absolute;
+  left: 0;
+  width: 60px;
+  height: 100vh;
+  /* border: 1px solid red; */
+}
+.links > .rightLinks {
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100vh;
+  /* border: 1px solid red; */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.links > .rightLinks > span > a > i {
+  color: #fff;
+  font-size: 30px;
+  margin: 10px auto;
+  transition: transform 0.3s ease;
+}
+.links > .rightLinks > span > a > i:hover {
+  transform: scale(1.2);
+}
+.icon {
+  opacity: 0;
+  transform: scale(0);
+  animation: popIn 0.5s ease forwards;
+  cursor: pointer;
+}
+.icon:nth-child(1) {
+  animation-delay: 0.2s; /* Delay the second icon's animation by 0.5 seconds */
+}
+.icon:nth-child(2) {
+  animation-delay: 0.4s; /* Delay the second icon's animation by 0.5 seconds */
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.links > .topLinks {
+  position: relative;
+  height: 80px;
+  width: 100vw;
+  font-family: "Rubik", sans-serif;
+  /* border: 1px solid red; */
+}
+.tl {
+  position: absolute;
+  left: 72%;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slideAndBounce 0.7s ease forwards;
+}
+
+@keyframes slideAndBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(37px);
+    opacity: 1;
+  }
+}
+.black {
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1;
+  font-size: 25px;
+}
+.white {
+  color: #fff2ee;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1;
+  font-size: 25px;
+}
+
+.skillsDivContainer {
+  margin: auto;
+  position: relative;
+  height: 350px;
+  width: 600px;
+  border: 2px solid #000;
+  background-color: #fff2ee;
+  transform: scale(0);
+  animation: popIn 1s ease forwards;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow-y: scroll;
+  z-index: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+  transition: 0.3s;
+}
+.skillsDivContainer::-webkit-scrollbar {
+  width: 0px;
+}
+.skillsDivContainer:hover {
+  color: #fff2ee;
+  background-color: #000;
+}
+.slide-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0f0f0f;
+  transform-origin: bottom;
+  overflow: hidden;
+}
+.slide-in {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0f0f0f;
+  transform-origin: bottom;
+  overflow: hidden;
+}
+.center {
+  height: 100vh;
+  width: 100vw;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.flexBox {
+  display: flex;
+  flex-direction: row;
+}
+.rightSkill {
+  margin-left: 20px;
+}
+.mshower {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+svg {
+  display: block;
+  font-size: 280px;
+  font-family: "Rubik", sans-serif;
+  width: 1000px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 6% 29%;
+  stroke-width: 5px;
+  stroke-dashoffset: 0%;
+  animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1) {
+  stroke: #000;
+  animation-delay: -1;
+}
+
+.text-copy:nth-child(2) {
+  stroke: #000;
+  animation-delay: -2s;
+}
+
+.text-copy:nth-child(3) {
+  stroke: #000;
+  animation-delay: -3s;
+}
+
+.text-copy:nth-child(4) {
+  stroke: #000;
+  animation-delay: -4s;
+}
+
+.text-copy:nth-child(5) {
+  stroke: #000;
+  animation-delay: -5s;
+}
+
+@keyframes stroke-offset {
+  100% {
+    stroke-dashoffset: -35%;
+  }
+}
+
+/*////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////*/
+
+@media screen and (max-width: 600px) {
+  .main {
+    height: 100%;
+  }
+  .center {
+    height: 70vh;
+    width: 100vw;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .main > .backgroundScreen {
+    display: flex;
+    flex-direction: column;
+  }
+  .main > .backgroundScreen > .left {
+    width: 100vw;
+    height: 50%;
+  }
+  .main > .backgroundScreen > .right {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 0;
+    background: #000;
+    animation: fillAnimation 1s ease forwards;
+  }
+  @keyframes fillAnimation {
+    100% {
+      height: 50%;
+    }
+  }
+  .main > .content {
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .main > .content > .box {
+    width: 95%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    animation: expandAnimation 1.5s ease forwards;
+  }
+  @keyframes expandAnimation {
+    0% {
+      transform: scaleY(0);
+    }
+    50% {
+      transform: scaleY(1.05);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+  .main > .content > .box > .leftBox {
+    width: 100%;
+    height: 250px;
+    background-color: #fff2ee;
+    border: 3px solid black;
+    border-bottom: 0;
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+  }
+  .main > .content > .box > .rightBox {
+    width: 100%;
+    height: 250px;
+    border: 3px solid #fff2ee;
+    background-color: #000;
+    border-top: 0;
+    padding: 40px;
+    padding-top: 30px;
+    font-family: "Rubik", sans-serif;
+  }
+  .main > .content > .box > .rightBox > div {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  .fade-in-element {
+    width: 200px;
+    position: absolute;
+    bottom: 50%;
+  }
+  .links {
+    height: 100%;
+  }
+  .links > .bottomLinks {
+    position: fixed;
+    bottom: 0px;
+    z-index: 1;
+  }
+  .links > .bottomLinks > span > a {
+    color: #fff;
+  }
+  .links > .topLinks {
+    position: relative;
+    height: 80px;
+    width: 100vw;
+    font-family: "Rubik", sans-serif;
+    /* border: 1px solid red; */
+  }
+  .tl {
+    position: fixed;
+    right: 20px;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideAndBounce 0.7s ease forwards;
+  }
+  .tl > a {
+    color: #000;
+  }
+  @keyframes slideAndBounce {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(50px);
+    }
+    100% {
+      transform: translateY(12px);
+      opacity: 1;
+    }
+  }
+  .links > .rightLinks {
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    /* border: 1px solid red; */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .fa-linkedin {
+    color: #000 !important;
+  }
+  .head {
+    font-size: 40px !important;
+  }
+  .name {
+    font-size: 26px !important;
+  }
+  .intro {
+    font-size: 20px !important;
+  }
+  .skillsDivContainer {
+    position: fixed;
+    top: 50%;
+    /* left: 50%; */
+    transform: translateY(-50%) !important;
+    transition: 0.5s !important;
+    height: 500px;
+    width: 90%;
+    animation: popIn 1s ease forwards !important;
+    overflow: hidden;
+  }
+  .center > h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px !important;
+  }
+  .particles {
+    display: block;
+  }
+  .flexBox {
+    display: flex;
+    flex-direction: column;
+  }
+  .rightSkill {
+    margin-top: 19px;
+    margin-left: 0px;
+  }
+  .pointernew {
+    display: none;
+  }
+  svg {
+    font-size: 100px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .tl > a {
+    font-size: 22px;
+  }
+  .name {
+    font-size: 20px !important;
+  }
+  .intro {
+    font-size: 18px !important;
+  }
+}

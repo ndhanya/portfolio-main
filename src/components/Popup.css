@@ -1,0 +1,42 @@
+/* src/components/Popup.css */
+.popup-overlay {
+    position: fixed;
+    inset: 0; /* top/right/bottom/left 0 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999; /* very high so it's always above other elements */
+  }
+  
+  .popup-container {
+    background: #000;
+    padding: 25px;
+    border-radius: 10px;
+    width: 760px;
+    width: 110%;
+    color: #fff;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    transform: translateY(0);
+    overflow: auto;
+    max-height: 90vh;
+  }
+  
+  .popup-close {
+    position: absolute;
+    right: 15px;
+    top: 8px;
+    font-size: 30px;
+    line-height: 1;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .popup-body {
+    padding-top: 8px;
+    /* place content styling here if needed */
+  }
+  
